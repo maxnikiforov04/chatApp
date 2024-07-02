@@ -1,13 +1,11 @@
 import "./index.css";
 import { Routes, Route } from "react-router-dom";
-import Auth from "./Auth/Auth";
-import Chat from "./Chat/Chat";
+import Calc from "./Auth/Calc";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Chat />}></Route>
-      <Route path="/auth" element={<Auth />}></Route>
+      <Route path="/" element={<Calc />}></Route>
     </Routes>
   );
 }
