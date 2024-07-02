@@ -3,7 +3,7 @@ import "./Calc.css";
 
 function Calc() {
   const btns = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0, "."];
-  const [firstNum, setFristNum] = useState<string>("");
+  const [firstNum, setFirstNum] = useState<string>("");
   const [secNum, setSecNum] = useState<string>("");
   const [fullyInput, setFullyInput] = useState<string>("");
   const [calculateItem, setCalculateItem] = useState<number | string>();
@@ -12,8 +12,12 @@ function Calc() {
   function clickOperator(event: React.MouseEvent) {
     event.preventDefault();
 
-    if (calculateItem != undefined && calculateItem != 0) {
-      setFristNum(String(calculateItem));
+    if (
+      calculateItem != undefined &&
+      calculateItem != 0 &&
+      opperators == true
+    ) {
+      setFirstNum(String(calculateItem));
       setOperSymb(event.currentTarget.innerHTML);
       setFullyInput(fullyInput.concat(event.currentTarget.innerHTML));
       setOpperators(false);
@@ -25,7 +29,7 @@ function Calc() {
   }
   function allClear(event: React.MouseEvent) {
     event.preventDefault();
-    setFristNum("");
+    setFirstNum("");
     setSecNum("");
     setFullyInput("");
     setCalculateItem(undefined);
@@ -36,7 +40,7 @@ function Calc() {
     event.preventDefault();
 
     if (opperators == true) {
-      setFristNum(String(firstNum).concat(event.currentTarget.innerHTML));
+      setFirstNum(String(firstNum).concat(event.currentTarget.innerHTML));
       setFullyInput(fullyInput.concat(event.currentTarget.innerHTML));
     } else {
       setSecNum(String(secNum).concat(event.currentTarget.innerHTML));
@@ -69,7 +73,7 @@ function Calc() {
     }
     setOpperators(true);
     setFullyInput("");
-    setFristNum("");
+    setFirstNum("");
     setSecNum("");
   }
 
